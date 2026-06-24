@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horia Cențiu | Psiholog & Psihoterapeut Brașov</title>
+  <meta name="description" content="Cabinet Individual de Psihologie Horia Cențiu. Terapie individuală, online și terapie cu copiii. Brașov și online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #E8B84B;
+      --yellow-light: #F5E7BE;
+      --yellow-pale: #FAF3DC;
+      --beige: #E8E0D0;
+      --beige-mid: #D6CCB8;
+      --dark: #2C2418;
+      --text: #3A2E1E;
+      --text-light: #7A6E5E;
+      --white: #FDFAF4;
+      --navy: #1E2D4A;
+      --ff-display: 'Cormorant Garamond', Georgia, serif;
+      --ff-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--white);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253, 250, 244, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--beige);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dark);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 60px;
+    }
+
+    .hero-text {
+      background: var(--yellow-pale);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--yellow);
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 0.85rem 2rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero-cta:hover { background: var(--yellow-light); transform: translateX(3px); }
+    .hero-cta::after { content: '→'; }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--beige) 0%, var(--beige-mid) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS GENERIC ── */
+    section { padding: 6rem 0; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── DESPRE MINE ── */
+    #despre {
+      background: var(--beige);
+    }
+
+    .despre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .despre-image {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--beige-mid);
+      position: relative;
+    }
+
+    .despre-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .despre-image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, var(--beige-mid) 0%, var(--yellow-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      min-height: 400px;
+    }
+
+    .despre-content p {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+      line-height: 1.85;
+    }
+
+    .quote-block {
+      border-left: 3px solid var(--yellow);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ── STUDII ── */
+    .studii-grid {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .studiu-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .studiu-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
+
+    /* ── SERVICII ── */
+    #servicii { background: var(--white); }
+
+    .servicii-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+
+    .serviciu-card {
+      background: var(--yellow-pale);
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: background 0.25s;
+    }
+
+    .serviciu-card:nth-child(2) { background: var(--beige); }
+    .serviciu-card:nth-child(3) { background: var(--yellow-light); }
+
+    .serviciu-card:hover { background: var(--yellow); }
+    .serviciu-card:hover .serviciu-title,
+    .serviciu-card:hover .serviciu-text,
+    .serviciu-card:hover .serviciu-link { color: var(--dark); }
+
+    .serviciu-num {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .serviciu-title {
+      font-family: var(--ff-display);
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .serviciu-text {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .serviciu-problems {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .serviciu-problems li::before {
+      content: '— ';
+      color: var(--yellow);
+    }
+
+    .serviciu-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      transition: gap 0.2s;
+    }
+
+    .serviciu-link:hover { gap: 0.8rem; }
+    .serviciu-link::after { content: '→'; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--navy); }
+
+    #faq .section-title { color: var(--white); }
+    #faq .section-label { color: var(--yellow); }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 3rem;
+    }
+
+    .faq-item {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 2rem;
+    }
+
+    .faq-num {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--yellow);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-question {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .faq-answer {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+    }
+
+    /* ── BLOG ── */
+    #blog { background: var(--yellow-pale); }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .blog-card {
+      background: var(--white);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .blog-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      font-weight: 500;
+    }
+
+    .blog-title {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+
+    .blog-excerpt {
+      font-size: 0.87rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .blog-link {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+
+    .blog-link:hover { gap: 0.7rem; }
+    .blog-link::after { content: '→'; }
+
+    .blog-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .blog-empty p { margin-bottom: 0.5rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .contact-detail-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .contact-detail a:hover { color: var(--yellow); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid var(--beige-mid);
+      background: var(--white);
+      font-family: var(--ff-body);
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--yellow); }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: var(--text-light); }
+
+    .contact-form textarea { height: 140px; resize: vertical; }
+
+    .form-btn {
+      background: var(--yellow);
+      color: var(--dark);
+      border: none;
+      padding: 1rem 2.5rem;
+      font-family: var(--ff-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+
+    .form-btn:hover { background: var(--yellow-light); }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2.5rem;
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+
+    footer a { color: var(--yellow); text-decoration: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--beige); padding: 1rem 0; }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 0.75rem 2rem; }
+      .nav-toggle { display: flex; }
+
+      #home { grid-template-columns: 1fr; min-height: auto; }
+      .hero-image { height: 55vw; }
+      .hero-text { padding: 3rem 1.5rem; }
+
+      .despre-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .servicii-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+
+      section { padding: 4rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Horia Cențiu</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#despre">Despre mine</a></li>
+    <li><a href="#servicii">Servicii</a></li>
+    <li><a href="#faq">Întrebări frecvente</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Meniu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Cabinet Individual de Psihologie</p>
+    <h1 class="hero-title">Horia<br><em>Cențiu</em></h1>
+    <p class="hero-sub">Psiholog & Psihoterapeut Experiențial Unificator. Lucrez în cabinet, în Brașov, și online — alături de tine, în ritmul tău.</p>
+    <a href="#contact" class="hero-cta">Contactează-mă</a>
+  </div>
+  <div class="hero-image">
+    <!-- Înlocuiește src cu poza ta -->
+    <div class="hero-image-placeholder">[ Adaugă poza ta aici ]</div>
+  </div>
+</section>
+
+<!-- DESPRE MINE -->
+<section id="despre">
+  <div class="container">
+    <div class="despre-grid">
+      <div class="despre-image">
+        <!-- Înlocuiește cu poza de pe munte -->
+        <div class="despre-image-placeholder">[ Poza de pe munte ]</div>
+      </div>
+      <div class="despre-content">
+        <p class="section-label">Despre mine</p>
+        <h2 class="section-title">Horia Cențiu</h2>
+
+        <p>Salut! Numele meu este Horia, și sunt consilier psihologic acreditat de Colegiul Psihologilor din România, cu formare în Psihoterapie Experiențială Unificatoare.</p>
+
+        <p>Sunt aici pentru că una dintre cele mai bune decizii pe care le-am luat în viață a fost să cer ajutorul unui terapeut. Nu a fost ușor. A trebuit să trec prin una dintre cele mai dificile provocări din viața mea pentru a face asta. Habar nu aveam câte de bine avea să îmi facă apoi și ce recunoaștere voi că problemele respective „s-agățau" în viața mea. Pun ghilimele pentru că consider că nimeni nu e între întâmplător în viață. Totul are un sens și e de datoria noastră să-l găsim.</p>
+
+        <p>Un lucru știu sigur: avem nevoie unul de celălalt. Atunci când simțim că lucrurile nu merg, că suntem blocați, că nu știm cum să ieșim dintr-o situație sau pur și simplu vrem să ne cunoaștem mai bine — a cere ajutor este un act de curaj și de înțelepciune.</p>
+
+        <div class="quote-block">
+          „Our deepest fear is not that we are inadequate. Our deepest fear is that we are powerful beyond measure." — Marianne Williamson
+        </div>
+
+        <p>Momentan lucrez în Brașov, dar și online. Lucrez împreună cu tine, în ritmul tău, fără grabă și fără clișee. Uneori cu profunzime. Alteori cu umor. Întotdeauna în direcția nevoilor tale.</p>
+
+        <div class="studii-grid">
+          <p class="section-label" style="margin-bottom: 0.5rem;">Studii și experiență</p>
+          <div class="studiu-item">Am finalizat Facultatea de Psihologie și Științe ale Educației la Universitatea București</div>
+          <div class="studiu-item">Master „Psihodiagnoză, Psihoterapie Experiențială Unificatoare și Dezvoltare Personală" — Universitatea București</div>
+          <div class="studiu-item">Acreditat de Colegiul Psihologilor din România ca și Consilier Psihologic</div>
+          <div class="studiu-item">Peste 500 de ore de terapie individuală și de grup, în diverse formate</div>
+          <div class="studiu-item">Peste 250 de ore de dezvoltare personală de grup</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICII -->
+<section id="servicii">
+  <div class="container">
+    <p class="section-label">Ce oferim</p>
+    <h2 class="section-title">Servicii</h2>
+    <div class="servicii-grid">
+
+      <div class="serviciu-card">
+        <p class="serviciu-num">01</p>
+        <h3 class="serviciu-title">Terapie individuală</h3>
+        <p class="serviciu-text">Te accept în cabinet și lucrăm împreună, într-un mediu sigur și confidențial. Disponibil pentru adolescenți și adulți, în Brașov sau București.</p>
+        <ul class="serviciu-problems">
+          <li>Dificultăți în relația de cuplu</li>
+          <li>Dorința de a te cunoaște mai bine</li>
+          <li>Creșterea încrederii în sine sau în ceilalți</li>
+          <li>Gestionarea emoțiilor dificile</li>
+          <li>Stări depresive sau anxioase</li>
+          <li>Consiliere profesională</li>
+        </ul>
+        <a href="#contact" class="serviciu-link">Contactează-mă</a>
+      </div>
+
+      <div class="serviciu-card">
+        <p class="serviciu-num">02</p>
+        <h3 class="serviciu-title">Terapie online</h3>
+        <p class="serviciu-text">Terapia avansează și se adaptează. Datorită contextului mondial actual, terapia se poate desfășura și online, pe Skype sau video call. Dacă dorești mai degrabă să ne vedem online, contactează-mă.</p>
+        <a href="#contact" class="serviciu-link">Contactează-mă</a>
+      </div>
+
+      <div class="serviciu-card">
+        <p class="serviciu-num">03</p>
+        <h3 class="serviciu-title">Terapie cu copiii</h3>
+        <p class="serviciu-text">Oferim un spațiu sigur și adaptat nevoilor celor mici. Terapia cu copiii și adolescenții adresează dificultăți emoționale, comportamentale, relaționale sau legate de adaptare școlară — într-un mediu de joc, explorare și înțelegere.</p>
+        <a href="#contact" class="serviciu-link">Contactează-mă</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <p class="section-label">Ai întrebări?</p>
+    <h2 class="section-title" style="color: var(--white);">Întrebări frecvente</h2>
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <p class="faq-num">01 /</p>
+        <h3 class="faq-question">Prima ședință. Ce ar trebui să știu?</h3>
+        <p class="faq-answer">Scopul primei ședințe este în general cunoașterea reciprocă, a problemei sau a obiectivului terapeutic. E posibil să te simți puțin stângaci — e ok, te deschizi în fața unui necunoscut. Dacă simți că tu și terapeutul nu vă potriviți, poți spune asta și poți primi o recomandare mai aproape de ceea ce ai tu nevoie.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-num">02 /</p>
+        <h3 class="faq-question">Cât de des trebuie să vin la terapie?</h3>
+        <p class="faq-answer">În general ședințele sunt săptămânale, e important să existe o constanță. Totuși, pot exista perioade când vom stabili de comun acord că ar fi de ajutor să vii mai des, sau din potrivă, mai rar.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-num">03 /</p>
+        <h3 class="faq-question">Cât durează o ședință?</h3>
+        <p class="faq-answer">O ședință durează 50 de minute.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-num">04 /</p>
+        <h3 class="faq-question">Cât durează un proces terapeutic?</h3>
+        <p class="faq-answer">Ritmul fiecăruia este diferit, fel și implicarea în proces. De asemenea diferă contextul de viață și problemele cu care oamenii vin în terapie. De aceea este dificil de estimat cât de mult sau de puțin durează rezolvarea unei probleme. Poate dura câteva luni, sau poate dura câțiva ani.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-num">05 /</p>
+        <h3 class="faq-question">De ce să merg la un consilier psihologic sau psihoterapeut?</h3>
+        <p class="faq-answer">Oricine poate întâmpina dificultăți și este important să știm că avem ajutorul unui specialist. Pentru mine, una dintre cele mai importante decizii din viața mea a fost să încep un proces terapeutic. Mi-a îmbunătățit considerabil capacitatea de a trece prin perioade dificile și mi-a fost un exemplu de relație autentică în viață.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-num">06 /</p>
+        <h3 class="faq-question">Când știu că un proces terapeutic s-a încheiat?</h3>
+        <p class="faq-answer">Când obiectivele pe care ți le-ai setat voi atins. Odată ce simți că ceea lucru s-a întâmplat, poți decide împreună cu terapeutul tău că e cel mai bun moment pentru a încheia.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-num">07 /</p>
+        <h3 class="faq-question">Cu ce mă ajută un psiholog?</h3>
+        <p class="faq-answer">Cabinetul psihologului e locul unde poți fi tu însuți, fără frică că ai răni pe cineva, că nu este adevărat să spui sau să faci ceva. Libertatea de a fi tu este unică și e un pas important în descoperirea de sine. În plus, terapeutul este acolo pentru tine, te ascultă, te înțelege, te ajută să înțelegi mai bine pe tine însuți, dar și pe cei din jurul tău.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-num">08 /</p>
+        <h3 class="faq-question">Cât costă o ședință?</h3>
+        <p class="faq-answer">Prețul unei ședințe este de 150 lei.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <p class="section-label">Gânduri & reflecții</p>
+    <h2 class="section-title">Blog</h2>
+    <div class="blog-grid">
+      <div class="blog-empty">
+        <p>Articolele vor apărea în curând.</p>
+        <p style="font-size: 0.82rem;">Revino sau contactează-mă pentru a fi notificat când public primul articol.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="section-label">Hai să vorbim</p>
+        <h2 class="section-title">Contact</h2>
+        <p>Momentan lucrez în cabinet, în Brașov, dar și online. Pentru stabilirea unei ședințe de psihoterapie, te rog să mă contactezi la numărul de telefon sau pe email.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <a href="tel:0746466462">0746 466 462</a>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <a href="mailto:hcentiu@gmail.com">hcentiu@gmail.com</a>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <span>Brașov & Online</span>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <input type="text" placeholder="Nume" required />
+            <input type="email" placeholder="Email" required />
+          </div>
+          <input type="text" placeholder="Subiect" />
+          <textarea placeholder="Mesaj"></textarea>
+          <p class="form-note">Îți răspund de obicei în 24–48 de ore. Pentru urgențe, te rog să suni direct.</p>
+          <button type="submit" class="form-btn">Trimite mesajul</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Cabinet Individual de Psihologie Horia Cențiu</p>
+  <p><a href="mailto:hcentiu@gmail.com">hcentiu@gmail.com</a> &nbsp;·&nbsp; <a href="tel:0746466462">0746 466 462</a></p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Form submit (placeholder — conectezi cu Formspree sau similar)
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('Mesajul a fost trimis! Te voi contacta în curând.');
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
