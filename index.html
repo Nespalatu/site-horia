@@ -1066,9 +1066,10 @@
       .nav-links a { display: block; padding: 0.75rem 2rem; }
       .nav-toggle { display: flex; }
 
-      #home { grid-template-columns: 1fr; min-height: auto; }
-      .hero-image { height: 55vw; }
-      .hero-text { padding: 3rem 1.5rem; }
+      #home { grid-template-columns: 1fr; min-height: auto; display: flex; flex-direction: column; }
+      .hero-text { padding: 3rem 1.5rem; order: 1; }
+      .hero-image { order: 2; height: 100vw; width: 100%; }
+      .hero-image img { object-position: center center; }
 
       .despre-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .tarife-grid, .test-grid { grid-template-columns: 1fr; }
