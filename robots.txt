@@ -1,0 +1,7 @@
+# robots.txt — horiacentiu.ro
+# Permite indexarea întregului site de către motoarele de căutare.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://horiacentiu.ro/sitemap.xml
