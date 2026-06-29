@@ -14,6 +14,15 @@
   <meta property="og:url" content="https://horiacentiu.ro" />
   <meta property="og:image" content="https://horiacentiu.ro/pozesite1.jpg" />
   <meta property="og:locale" content="ro_RO" />
+	
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17183991954"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17183991954');
+</script>
 
   <!-- SEO: Canonical -->
   <link rel="canonical" href="https://horiacentiu.ro" />
@@ -1584,9 +1593,10 @@
           body: new FormData(contactForm),
           headers: { 'Accept': 'application/json' }
         });
-        if (response.ok) {
-          contactForm.style.display = 'none';
-          document.getElementById('formSuccess').classList.add('show');
+       if (response.ok) {
+  contactForm.style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+  gtag('event', 'conversion', { 'send_to': 'AW-17183991954/44fsCOvDwcccEJLR-4FA' });
         } else {
           btn.textContent = 'Eroare. Încearcă din nou.';
           btn.disabled = false;
