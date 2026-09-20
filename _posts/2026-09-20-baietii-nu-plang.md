@@ -33,8 +33,4 @@ Ca de exemplu chiar acum — cu lacrimi în ochi, las articolul ăsta, care oric
 
 <div class="article-note" markdown="1">
 
-**Notă finală**
-
-Dacă ce-ai citit aici ți-a atins ceva — o neliniște, o recunoaștere, o lacrimă pe care ai ținut-o și tu ascunsă — sunt aici. Poți să-mi scrii sau să programezi o primă ședință [link].
-
 </div>
