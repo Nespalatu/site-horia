@@ -63,8 +63,4 @@ Ce s-a întâmplat între mine și Mihai, în cabinet, are un nume — o să vor
 
 <div class="article-note" markdown="1">
 
-**Notă finală**
-
-Dacă ce-ai citit aici ți-a atins ceva — o neliniște, o recunoaștere, o întrebare care nu te lasă — sunt aici. Poți să-mi scrii sau să programezi o primă ședință [link].
-
 </div>
